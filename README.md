@@ -2,7 +2,7 @@
 
 Run `npm install` to install all dependencies.
 
-From `client/` also run `npm install` to install the React client's dependencies.
+From `lib-ui/` also run `npm install` to install the React client's dependencies.
 
 ## Preparing the database
 
@@ -12,11 +12,11 @@ Follow the instructions in the official [MongoDB documentation](https://www.mong
 
 First we need to define schemas for collections in our database. We will do this in class. Once the schemas have been defined, we can populate the collections with test data with the following command:
 
-`$ node insert_sample_data.js "mongodb://127.0.0.1:27017/my_library_db"`
+`$ node insert_sample_data.ts "mongodb://127.0.0.1:27017/my_library_db"`
 
 At any point, we can delete all data in the database and start afresh by using the following command:
 
-`$ node remove_db.js "mongodb://127.0.0.1:27017/my_library_db"`.
+`$ node remove_db.ts "mongodb://127.0.0.1:27017/my_library_db"`.
 
 # References
 
