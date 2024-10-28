@@ -11,6 +11,9 @@ export interface IBookInstance extends Document {
 
 var BookInstanceSchema: Schema<IBookInstance> = new Schema(
   {
+    // A book item which references the book schema
+    // required, max length, etc. are called validators.
+    // they validate the schema
     book: { type: Schema.Types.ObjectId, ref: 'Book', required: true }, //reference to the associated book
     imprint: {type: String, required: true},
     status: {type: String, required: true, enum: ['Available', 'Maintenance', 'Loaned', 'Reserved'], default: 'Maintenance'},
@@ -19,5 +22,6 @@ var BookInstanceSchema: Schema<IBookInstance> = new Schema(
 );
 
 // Export the model
+// compile the schema into a model
 const BookInstance: Model<IBookInstance> = mongoose.model<IBookInstance>('BookInstance', BookInstanceSchema);
 export default BookInstance;

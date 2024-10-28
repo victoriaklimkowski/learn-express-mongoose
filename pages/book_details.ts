@@ -5,9 +5,13 @@ import BookInstance, { IBookInstance }  from '../models/bookinstance';
 
 // Function to get a book by ID
 async function getBook(id: string): Promise<IBook | null> {
+  // Important to check type here because it also
+  // doubles as a security vulnerability check 
   if (typeof id !== 'string') {
     return null;
   }
+  // FindOne then populate
+  // exec because we are looking for a promise
   return Book.findOne({ _id: id }).populate('author').exec();
 }
 

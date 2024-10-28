@@ -3,6 +3,8 @@ import BookInstance, { IBookInstance } from '../models/bookinstance';
 
 // Function to show all books with status "Available"
 export const showAllBooksStatus = (res: Response): void => {
+  // Available is a specific mongoose query/status term
+  // Google for more info
   BookInstance.find({ status: { $eq: 'Available' } })
     .populate('book')
     .exec()

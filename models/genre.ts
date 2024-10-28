@@ -7,6 +7,7 @@ export interface IGenre extends Document {
 
 var GenreSchema: Schema<IGenre> = new Schema(
   {
+    // Every doc is auto-generated an ID by the system
     name: {type: String, required: true, maxLength: 100, minLength: 4}
   }
 );

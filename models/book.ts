@@ -14,6 +14,7 @@ export interface IBook extends Document {
 var BookSchema: Schema<IBook> = new Schema(
   {
     title: {type: String, required: true},
+    // References an existing schema - Author
     author: {type: Schema.Types.ObjectId, ref: 'Author', required: true},
     summary: {type: String, required: true},
     isbn: {type: String, required: true},
@@ -22,5 +23,6 @@ var BookSchema: Schema<IBook> = new Schema(
 );
 
 // Export the model
+// A document structure inside the books collection
 const Book: Model<IBook> = mongoose.model<IBook>('Book', BookSchema);
 export default Book;

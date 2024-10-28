@@ -1,6 +1,7 @@
 import Book, { IBook } from '../models/book';
 import Author from '../models/author';
 
+// Is not practical here to use embedded so instead we use references
 function getBooks() {
   return Book.find({}, 'title author')
     .sort({ title: 1 })  // 1 indicates ascending order

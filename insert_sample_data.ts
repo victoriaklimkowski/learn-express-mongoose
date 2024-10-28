@@ -47,6 +47,7 @@ async function authorCreate(
   d_birth: string | false, 
   d_death: string | false
 ) {
+  // Construct a partial object because we don't have it all
   const authordetail: Partial<IAuthor> = { 
     first_name: first_name, 
     family_name: family_name,
@@ -110,9 +111,15 @@ async function createGenres() {
   ]);
 }
 
+// ..So this function has to be async
 async function createAuthors() {
   console.log("Adding authors");
+  // we use await here so we don't block the main thread
+  // they don't have any dependencies on eachother
+  // so we can start them all at the same time
+  // and use await
   await Promise.all([
+    // Each of these returns a promise
     authorCreate("Patrick", "Rothfuss", "1973-06-06", false),
     authorCreate("Ben", "Bova", "1932-11-8", false),
     authorCreate("Isaac", "Asimov", "1920-01-02", "1992-04-06"),
